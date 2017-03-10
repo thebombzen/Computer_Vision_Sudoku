@@ -101,6 +101,9 @@ SudokuSolver::SudokuSolver(vector<vector<int>> puzzle) {
     cout << "Unsolved Puzzle:" << endl;
     printBoard(puzzle);
 
-    solvePuzzle();
+    // Solves puzzle or prints that there isn't a solution
+    if (!solvePuzzle()){
+        cout << "There is no legal solution to this puzzle." << endl;
+    }
 
 }
