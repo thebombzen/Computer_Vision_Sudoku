@@ -4,10 +4,12 @@
 
 #include "SudokuSolver.h"
 
-#include <iostream>
-#include <vector>
 
 using namespace std;
+
+bool SudokuSolver::getSolved(){
+    return isSolved;
+}
 
 bool SudokuSolver::locateEmptySquare(int &currentRow, int &currentColumn) {
     for (currentRow = 0; currentRow < boardLength; currentRow++) {
@@ -17,9 +19,39 @@ bool SudokuSolver::locateEmptySquare(int &currentRow, int &currentColumn) {
             }
         }
     }
-    cout << "Solved Puzzle:" << endl;
-    printBoard(board);
+    //cout << "Solved Puzzle:" << endl; <---- For debugging
+    isSolved = true;
+    //printBoard(board); <---- For debugging
     return false;
+}
+
+bool SudokuSolver::isValidPuzzle(){
+    int counter;
+    for(int i = 1; i<10; i++){
+        for(int row = 0; row < boardLength; row++){
+            counter = 0;
+            for (int col = 0; col <  boardLength; col++){
+                if(board[row][col] == i){
+                    counter += 1;
+                }
+            }
+            if (counter > 1){
+                return false;
+            }
+        }
+        for(int col = 0; col < boardLength; col ++){
+            counter = 0;
+            for (int row = 0; row <  boardLength; row++){
+                if(board[row][col] == i){
+                    counter += 1;
+                }
+            }
+            if (counter > 1){
+                return false;
+            }
+        }
+    }
+    return true;
 }
 
 bool SudokuSolver::isLegalMove(int num, int row, int col) {
@@ -72,6 +104,10 @@ void SudokuSolver::printBoard(vector<vector<int>> puzzle) {
     cout << endl;
 }
 
+vector<vector<int>> SudokuSolver::getBoard(){
+    return board;
+}
+
 bool SudokuSolver::solvePuzzle() {
 
     // These hold the coordinates of the square being tested in the function call so that backtracking works properly
@@ -89,21 +125,27 @@ bool SudokuSolver::solvePuzzle() {
             }
             board[currentRow][currentCol] = 0;
 
-            }
         }
+    }
     return false;
 }
 
 SudokuSolver::SudokuSolver(vector<vector<int>> puzzle) {
     boardLength = 9;
     board = puzzle;
+    isSolved = false;
 
-    cout << "Unsolved Puzzle:" << endl;
-    printBoard(puzzle);
+    //cout << "Unsolved Puzzle:" << endl; <---- For debugging
+    //printBoard(puzzle);  <---- For debugging
 
     // Solves puzzle or prints that there isn't a solution
-    if (!solvePuzzle()){
-        cout << "There is no legal solution to this puzzle." << endl;
+    if (isValidPuzzle()) {
+        if (!solvePuzzle()) {
+            //cout << "There is no legal solution to this puzzle." << endl; <---- For debugging
+        }
     }
-
+    else{
+        //cout << "Invalid Puzzle" << endl; <---- For debugging
+    }
 }
+
