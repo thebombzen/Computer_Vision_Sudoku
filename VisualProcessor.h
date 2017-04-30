@@ -91,7 +91,7 @@ private:
     Point2f src[4], dst[4];
 
     // Stores the solution of the current puzzle
-    vector<vector<int>> solution;
+    vector<vector<int> > solution;
 
     // Values for various CV transformations, can be adjusted if necessary
     int scale = 3;

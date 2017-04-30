@@ -70,7 +70,7 @@ void VisualProcessor::cropBoard(Mat grayscale_mat) {
 Rect VisualProcessor::detectPuzzleBounds(Mat detectedEdges) {
     double maxArea = 0;
     Rect tempMaxRect;
-    vector<vector<Point>> contours;
+    vector<vector<Point> > contours;
 
     findContours(detectedEdges, contours, RETR_CCOMP, CHAIN_APPROX_SIMPLE);
 
@@ -315,7 +315,7 @@ void VisualProcessor::scanBoard(Mat webcam_frame, tesseract::TessBaseAPI &ocr) {
     Mat temp_nums(unwarped_puzzle.size(), webcam_frame.type(), Scalar(0, 0, 0));
 
     // Null board
-    vector<vector<int>> detectedClues = {
+    vector<vector<int> > detectedClues = {
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 0, 0, 0, 0},

@@ -30,20 +30,20 @@ public:
     bool legalSubBox(int num, int firstRow, int firstColumn);
 
     // Prints out the current state of the board
-    void printBoard(vector<vector<int>> puzzle);
+    void printBoard(vector<vector<int> > puzzle);
 
     // Main recursive function which attempts to solve a given puzzle using backtracking techniques
     bool solvePuzzle();
 
     // Default constructor assigns boardLength to 9 (like a typical Sudoku puzzle)
-    SudokuSolver(vector<vector<int>> puzzle);
+    SudokuSolver(vector<vector<int> > puzzle);
 
 private:
     // Dimension of the square board and the numbers it contains (EG 9 means 9x9 board and 1-9 to be placed in squares)
     int boardLength;
 
     // 2D vector to load board into
-    vector<vector<int>> board;
+    vector<vector<int> > board;
 };
 
 

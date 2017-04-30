@@ -94,7 +94,7 @@ bool SudokuSolver::legalSubBox(int num, int firstRow, int firstColumn) {
 }
 
 // Prints out the current state of the board
-void SudokuSolver::printBoard(vector<vector<int>> puzzle) {
+void SudokuSolver::printBoard(vector<vector<int> > puzzle) {
     for (int row = 0; row < boardLength; row++) {
         for (int col = 0; col < boardLength; col++) {
             cout << puzzle[row][col] << " ";
@@ -104,7 +104,7 @@ void SudokuSolver::printBoard(vector<vector<int>> puzzle) {
     cout << endl;
 }
 
-vector<vector<int>> SudokuSolver::getBoard(){
+vector<vector<int> > SudokuSolver::getBoard(){
     return board;
 }
 
@@ -130,7 +130,7 @@ bool SudokuSolver::solvePuzzle() {
     return false;
 }
 
-SudokuSolver::SudokuSolver(vector<vector<int>> puzzle) {
+SudokuSolver::SudokuSolver(vector<vector<int> > puzzle) {
     boardLength = 9;
     board = puzzle;
     isSolved = false;
