@@ -395,6 +395,9 @@ Scalar VisualProcessor::pickColor(int solutionValue) {
             return Scalar(255, 0, 0); // Blue
         case 9:
             return Scalar(127, 0, 255); // Magenta
+        default:
+        	// This should never happen. It's to prevent a warning.
+        	return Scalar(0, 0, 0); // Black
     }
 }
 
