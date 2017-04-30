@@ -9,8 +9,6 @@
 #include <vector>
 
 
-using namespace std;
-
 class SudokuSolver {
 
 public:
@@ -30,7 +28,7 @@ public:
     bool legalSubBox(int num, int firstRow, int firstColumn);
 
     // Prints out the current state of the board
-    void printBoard(vector<vector<int> > puzzle);
+    void printBoard(std::vector<std::vector<int> > puzzle);
 
     // Main recursive function which attempts to solve a given puzzle using backtracking techniques
     bool solvePuzzle();
@@ -42,10 +40,10 @@ public:
     bool isValidPuzzle();
 
     // returns the board
-    vector<vector<int> > getBoard();
+    std::vector<std::vector<int> > getBoard();
 
     // Default constructor assigns boardLength to 9 (like a typical Sudoku puzzle)
-    SudokuSolver(vector<vector<int> > puzzle);
+    SudokuSolver(std::vector<std::vector<int> > puzzle);
 
 private:
 
@@ -56,7 +54,7 @@ private:
     int boardLength;
 
     // 2D vector to load board into
-    vector<vector<int> > board;
+    std::vector<std::vector<int> > board;
 };
 
 
