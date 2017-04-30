@@ -35,10 +35,23 @@ public:
     // Main recursive function which attempts to solve a given puzzle using backtracking techniques
     bool solvePuzzle();
 
+    // returns isSolved
+    bool getSolved();
+
+    // is this puzzle valid?
+    bool isValidPuzzle();
+
+    // returns the board
+    vector<vector<int> > getBoard();
+
     // Default constructor assigns boardLength to 9 (like a typical Sudoku puzzle)
     SudokuSolver(vector<vector<int> > puzzle);
 
 private:
+
+    // isSolved
+    bool isSolved;
+
     // Dimension of the square board and the numbers it contains (EG 9 means 9x9 board and 1-9 to be placed in squares)
     int boardLength;
 
